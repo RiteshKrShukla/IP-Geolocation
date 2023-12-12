@@ -13,8 +13,8 @@ const getClientIp = (req) => {
 
 const app = express();
 
-app.get('/', (req, res) => {
-    const userIp = getClientIp(req);
+app.get('/', async (req, res) => {
+  const userIp = getClientIp(req);
 
   try {
     const response = await axios.get(`https://ipinfo.io/${userIp}/json?token=19ddd5f80d1757`);
@@ -39,5 +39,5 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
